@@ -22,8 +22,6 @@ jobs:
       tag_major_minor: ${{ steps.get.outputs.tag_major_minor }}
       tag_major_minor_patch: ${{ steps.get.outputs.tag_major_minor_patch }}
     steps:
-      # Required so the composite action under ./.github/actions/version/get is
-      # available on disk; the action itself does its own full-history checkout.
       - uses: actions/checkout@v6
         with:
           fetch-depth: 0
@@ -66,7 +64,6 @@ jobs:
       - name: Lint Codebase
         uses: camalot/actions/smells/lint@v1
         with:
-          # Cannot use the default GITHUB_TOKEN as it cannot read from other repositories
           token: ${{ github.token }}
           default_branch: main
           delete_previous_comment: true
@@ -87,9 +84,6 @@ jobs:
       issues: read
       pull-requests: read
     steps:
-      # Required so the composite action under ./.github/actions/version/release
-      # is available on disk; the action itself does its own full-history
-      # checkout with credentials.
       - uses: actions/checkout@v6
         with:
           fetch-depth: 0
@@ -103,6 +97,8 @@ jobs:
           token: ${{ github.token }}
 
   publish-documentation:
+    # REMOVE when ready to publish documentation
+    if: false
     runs-on: ubuntu-latest
     permissions:
       contents: read

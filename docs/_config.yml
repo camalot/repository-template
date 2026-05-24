@@ -1,0 +1,9 @@
+---
+title: Repository Template
+description: A template repository for quickly setting up new projects with best practices and common configurations.
+
+
+# Aux links (top nav)
+aux_links:
+  "GitHub":
+    - "https://github.com/camalot/repository-template"
