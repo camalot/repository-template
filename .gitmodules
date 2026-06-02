@@ -1,0 +1,3 @@
+[submodule ".submodules/devcontainers"]
+	path = .submodules/devcontainers
+	url = git@github.com:camalot/devcontainers.git
